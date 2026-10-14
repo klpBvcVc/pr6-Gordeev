@@ -1,0 +1,12 @@
+digraph C {
+graph [rankdir=TB, bgcolor="white", pad=0.3, nodesep=0.5, ranksep=0.6];
+node [shape=record, style="filled", fontname="Sans", fontsize=12, color="#2F5597", fillcolor="#F7FBFF"];
+edge [fontname="Sans", fontsize=11, color="#555555"];
+s [label="{SelfCheck|+ main(String[]) void\l- runUnitChecks() void\l- runDataDriven() void\l- runInteractive() void\l}"];
+a [label="{ApprovalRouter|+ FINANCE_LIMIT : long = 500000\l- PRIORITY_AMOUNT_STEP : long\l- HIGH_RISK_PRIORITY_BONUS : int\l|+ route(long, boolean, RiskLevel, boolean) ApprovalRoute\l+ addPriorityScore(long, RiskLevel) int\l- checkArguments(long, RiskLevel) void\l- requiresSecurityReview(boolean) boolean\l- requiresFinanceReview(long) boolean\l- requiresDirectorReview(RiskLevel) boolean\l- requiresFastTrack(long, boolean) boolean\l}", fillcolor="#E2F0D9", color="#548235"];
+r [label="{«enumeration»\nApprovalRoute||STANDARD\lFAST_TRACK\lFINANCE_REVIEW\lDIRECTOR_REVIEW\lSECURITY_REVIEW\l}"];
+risk [label="{«enumeration»\nRiskLevel||LOW\lMEDIUM\lHIGH\l}"];
+s -> a [label="uses", style=dashed, arrowhead=open];
+a -> r [label="returns", style=dashed, arrowhead=open];
+a -> risk [label="uses", style=dashed, arrowhead=open];
+}
